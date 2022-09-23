@@ -15,14 +15,17 @@ const Login = ({ onFormSwitch }) => {
       );
 
       alert(response.data.successful);
+      localStorage.setItem("user",JSON.stringify(response.data.data))
       onFormSwitch("dashboard");
     } catch (error) {
       alert(error.response.data.data.message);
+      
     }
   };
 
   return (
     <div className="auth-form">
+      <h1>LOGIN</h1>
       <form className="login-form" onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
